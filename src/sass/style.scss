@@ -1,0 +1,79 @@
+/*  Varibles */
+//  FONTS
+$raleway: "Raleway";
+$osans: "Open Sans";
+$fawesome: "Font Awesome 5 Brends";
+// COLORS
+$red:#e84545;
+$blue: #2b2e4a;
+$grey: #c6cacc;
+$white: #ffffff;
+// WIDTH
+// MICSINS
+@mixin fonts($font, $fsize, $transform, $color) {
+    font-family: $font;
+    font-size: $fsize;
+    text-transform: $transform;
+    color: $color;
+}
+/*Varibles end */
+
+/*  ---JOINT STYLES--- */
+
+/* ---JOINT STYLES END--- */
+
+body {
+    font-family: "Raleway";
+}
+
+header {
+    width: 100%;
+    height: 500px;
+    position: relative;
+    background: {
+        // color: $blue, $alpha: .3;
+        image: url(../img/header-img.jpg);
+        size: cover;
+        repeat: no-repeat;
+        position: center;
+        // blend-mode: multiply;
+    }
+    .color-layer {
+        background-color: rgba($blue, .9);
+        width: 100%;
+        height: 100%;
+        position: absolute;
+    }
+}
+
+.download-now {
+    max-width: 640px;
+    margin: auto;
+    text-align: center;
+    h2 {
+        @include fonts($raleway, (28 / 16) + rem, capitalize, #000);
+        font-weight: lighter;
+    }
+    p {
+
+    }
+    button {
+        // background: none;
+        border: none;
+        background-color: $red;
+        cursor: pointer;
+    }
+}
+
+footer {
+    $blue: #3a3e64;
+    background-color: $blue;
+    .container-copyright {
+        $blue: #313454;
+        background-color: $blue;
+    }
+}
+.icon-heart {
+    font-family: 'Webdings';
+    color:$red;
+}
