@@ -4,76 +4,297 @@ $raleway: "Raleway";
 $osans: "Open Sans";
 $fawesome: "Font Awesome 5 Brends";
 // COLORS
-$red:#e84545;
+$red: #e84545;
 $blue: #2b2e4a;
 $grey: #c6cacc;
 $white: #ffffff;
+$purple: #53354a;
 // WIDTH
+$gall-w: 470px;
+$gall-h: 355px;
+// $btnh: 46px;
 // MICSINS
-@mixin fonts($font, $fsize, $transform, $color) {
-    font-family: $font;
-    font-size: $fsize;
-    text-transform: $transform;
-    color: $color;
+@mixin fonts($font, $fsize, $wight, $transform, $color) {
+  font-family: $font;
+  font-size: $fsize;
+  font-weight: $wight;
+  text-transform: $transform;
+  color: $color;
+}
+@mixin radius($radius) {
+  border-radius: $radius;
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  -ms-border-radius: $radius;
+  -o-border-radius: $radius;
 }
 /*Varibles end */
 
 /*  ---JOINT STYLES--- */
+%gallery-hover {
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 10;
+    @include fonts($raleway, (14 / 16) + rem, bold, uppercase, $white);
+    background-color: rgba($red, 0.7);
+    text-align: center;
+    padding-top: 50%;
+    p {
+        font-weight: normal;
+        text-transform: capitalize;
+    }
+}
 
+* {
+  margin: 0;
+  padding: 0;
+}
+.header-content,
+.features,
+.team,
+.download-now {
+  max-width: 1185px;
+  margin: auto;
+}
+h1,
+button,
+.menu__item,
+.features__head,
+.team__my-profession,
+.download-now__text,
+.info__content h5 {
+  text-transform: uppercase;
+}
+
+li {
+  list-style: none;
+  display: inline-block;
+}
+a {
+  text-decoration: none;
+}
+button {
+  height: 46px;
+  border: none;
+  @include radius(2px);
+  @include fonts($raleway, (13 / 16) + rem, bold, auto, #ffffff);
+  background-color: $red;
+  cursor: pointer;
+}
 /* ---JOINT STYLES END--- */
 
 body {
-    font-family: "Raleway";
+  font-family: $raleway;
+}
+
+.container {
+  max-width: 1900px;
 }
 
 header {
+  width: 100%;
+  height: (750 / 16) + rem;
+  position: relative;
+  color: $white;
+  background: {
+    image: url(../img/header-img.jpg);
+    size: cover;
+    repeat: no-repeat;
+    position: center;
+    // blend-mode: multiply;
+  }
+  .color-layer {
+    background-color: rgba($blue, 0.9);
     width: 100%;
-    height: 500px;
-    position: relative;
-    background: {
-        // color: $blue, $alpha: .3;
-        image: url(../img/header-img.jpg);
-        size: cover;
-        repeat: no-repeat;
-        position: center;
-        // blend-mode: multiply;
-    }
-    .color-layer {
-        background-color: rgba($blue, .9);
-        width: 100%;
-        height: 100%;
-        position: absolute;
-    }
+    height: 100%;
+    position: absolute;
+  }
 }
 
-.download-now {
-    max-width: 640px;
-    margin: auto;
+.header-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  nav {
+    width: 100%;
+    margin-top: 3.5%;
+    display: flex;
+    justify-content: space-between;
+    align-self: flex-end;
+  }
+  .wrapper-general-head {
+    width: (935 / 1185) * 100%;
     text-align: center;
-    h2 {
-        @include fonts($raleway, (28 / 16) + rem, capitalize, #000);
-        font-weight: lighter;
+    h1 {
+      @include fonts($osans, (65 / 16) + rem, bold, auto, auto);
+      margin-top: 20%;
+      // align-self: center;
     }
     p {
-
+      margin-top: 2%;
+      font-size: (22 / 16) + rem;
     }
     button {
-        // background: none;
-        border: none;
-        background-color: $red;
-        cursor: pointer;
+      width: 200px;
+      margin-top: 9.5%;
     }
+  }
+}
+
+.menu {
+  width: 595px;
+  display: flex;
+  justify-content: space-between;
+  &__link {
+    font-size: (13 / 16) + rem;
+    color: $white;
+  }
+}
+
+.features {
+  max-width: 1100px;
+  height: 455px;
+  padding-top: 120px;
+  padding-bottom: 120px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  &__img {
+    width: 60px;
+    height: 60px;
+    margin: auto;
+    border: 1px dashed grey;
+  }
+  &__title {
+    width: 140px;
+    height: 20px;
+    margin: auto;
+    border: 1px solid red;
+  }
+  &__description {
+    width: 310px;
+    height: 100px;
+    border: 1px solid black;
+  }
+}
+
+.gallery {
+  max-width: 1900px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  &__img {
+    max-width: $gall-w;
+    max-height: $gall-h;
+    margin: 0.1%;
+    position: relative;
+    .red-glass {
+        display: none;
+    }
+    &:hover .red-glass {
+        @extend %gallery-hover;
+    }
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+.team {
+  height: 780px;
+  padding-top: 8%;
+  display: flex;
+//   flex-wrap: wrap;
+}
+
+.clients {
+  display: flex;
+  height: 500px;
+  //   border: 1px dashed black;
+  &__img {
+    width: 50%;
+    background: {
+      image: url(../img/clients.jpg);
+      size: cover;
+      repeat: no-repeat;
+      position: center;
+    }
+  }
+  #slider {
+    width: 50%;
+    height: 100%;
+    background-color: $purple;
+  }
+}
+
+#download {
+  max-width: 640px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 340px;
+  margin: auto;
+  text-align: center;
+  h2 {
+    margin-bottom: (15 / 640) * 100%;
+    @include fonts($raleway, (28 / 16) + rem, lighter, capitalize, #000);
+  }
+  button {
+    width: 280px;
+    margin-top: (40 / 640) * 100%;
+  }
 }
 
 footer {
+  h5 {
+    color: $white;
+    padding-bottom: 20px;
+  }
+  p,
+  address {
+    font-size: (14 / 16) + rem;
+    line-height: 1.5;
+    color: rgba($white, 0.5);
+  }
+  .info {
+    width: 100%;
+    padding-top: 5.5%;
+    padding-bottom: 85px;
     $blue: #3a3e64;
     background-color: $blue;
-    .container-copyright {
-        $blue: #313454;
-        background-color: $blue;
+    .info__content {
+      max-width: 1025px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      text-align: center;
+      .location {
+        width: 160px;
+      }
+      .about-activebox {
+        max-width: 335px;
+      }
     }
-}
-.icon-heart {
-    font-family: 'Webdings';
-    color:$red;
+  }
+  .container-copyright {
+    padding-top: 25px;
+    padding-bottom: 25px;
+    font-size: (14 / 16) + rem;
+    $grey: #808080;
+    color: $grey;
+    text-align: center;
+    $blue: #313454;
+    background-color: $blue;
+    .designer {
+      color: $white;
+    }
+    .icon-heart {
+      font-family: "Webdings";
+      color: $red;
+    }
+  }
 }
