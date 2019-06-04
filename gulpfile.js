@@ -11,6 +11,7 @@ const imagemin    = require('gulp-imagemin');
 const imageminPngquant = require("imagemin-pngquant");
 const imgCompress = require("imagemin-jpeg-recompress");
 const uglify = require("gulp-uglify");
+const pipeline = require("readable-stream").pipeline;
 const browserSync = require("browser-sync").create();
 // **************************************************
 const watcher = watch([
@@ -50,13 +51,16 @@ const serv = () => {
 //   };
   
   const babelTranspiller = () => {
-     return src("src/**/index.js")
+     return src("src/**/*.js")
          .pipe(sourcemaps.init())
          .pipe(babel())
          // .pipe(rigger())
-         .pipe(concat("min.main.js"))
-         .pipe(uglify())
-        //  .pipe(rename({ suffix: ".min" }))
+         .pipe(concat("all.js"))
+         .pipe.pipeline(
+        	src('src/**/*.js'),
+        	uglify(),
+        	dest('dist/js'))
+         //.pipe(uglify())
          .pipe(sourcemaps.write("."))
          .pipe(dest("dist/js"));
 };
