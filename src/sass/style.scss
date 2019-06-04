@@ -2,7 +2,8 @@
 //  FONTS
 $raleway: "Raleway";
 $osans: "Open Sans";
-$fawesome: "Font Awesome 5 Brends";
+$cardo: "Cardo";
+$fawesome: "Font Awesome 5 Brands";
 // COLORS
 $red: #e84545;
 $blue: #2b2e4a;
@@ -10,10 +11,12 @@ $grey: #c6cacc;
 $white: #ffffff;
 $purple: #53354a;
 // WIDTH
-$gall-w: 470px;
-$gall-h: 355px;
-// $btnh: 46px;
 // MICSINS
+@mixin size($whidth: 470px, $height: 355px) {
+  width: $whidth;
+  height: $height;
+}
+
 @mixin fonts($font, $fsize, $wight, $transform, $color) {
   font-family: $font;
   font-size: $fsize;
@@ -32,20 +35,24 @@ $gall-h: 355px;
 
 /*  ---JOINT STYLES--- */
 %gallery-hover {
-    display: block;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    z-index: 10;
-    @include fonts($raleway, (14 / 16) + rem, bold, uppercase, $white);
-    background-color: rgba($red, 0.7);
-    text-align: center;
-    padding-top: 50%;
-    p {
-        font-weight: normal;
-        text-transform: capitalize;
-    }
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 10;
+  @include fonts($raleway, (14 / 16) + rem, bold, uppercase, $white);
+  background-color: rgba($red, 0.7);
+  text-align: center;
+  line-height: 1.8;
+  box-sizing: border-box;
+  p {
+    font-weight: normal;
+    text-transform: capitalize;
+  }
 }
+// ***********************************
 
 * {
   margin: 0;
@@ -54,8 +61,10 @@ $gall-h: 355px;
 .header-content,
 .features,
 .team,
-.download-now {
-  max-width: 1185px;
+.download-now,
+.info__content {
+  max-width: 1170px;
+  width: 100%;
   margin: auto;
 }
 h1,
@@ -83,6 +92,26 @@ button {
   background-color: $red;
   cursor: pointer;
 }
+.social-nets {
+  a {
+    display: inline-block;
+    width: 44px;
+    height: 44px;
+    border: 1px solid #e8ecee;
+    text-align: center;
+    line-height: 40px;
+    @include fonts($fawesome, (18 / 16) + rem, auto, auto, $grey);
+  }
+  &__item:nth-of-type(1) a::after {
+    content: "\f39e";
+  }
+  &__item:nth-of-type(2) a::after {
+    content: "\f099";
+  }
+  &__item:nth-of-type(3) a::after {
+    content: "\f08c";
+  }
+}
 /* ---JOINT STYLES END--- */
 
 body {
@@ -90,7 +119,8 @@ body {
 }
 
 .container {
-  max-width: 1900px;
+  //   max-width: 1900px;
+  width: 100%;
 }
 
 header {
@@ -123,12 +153,17 @@ header {
     display: flex;
     justify-content: space-between;
     align-self: flex-end;
+    .logo {
+      display: inline-block;
+      padding-left: 2%;
+      padding-right: 2%;
+    }
   }
   .wrapper-general-head {
     width: (935 / 1185) * 100%;
     text-align: center;
     h1 {
-      @include fonts($osans, (65 / 16) + rem, bold, auto, auto);
+      @include fonts($osans, (65 / 16) + em, bold, auto, auto);
       margin-top: 20%;
       // align-self: center;
     }
@@ -147,6 +182,8 @@ header {
   width: 595px;
   display: flex;
   justify-content: space-between;
+  padding-right: 2%;
+  padding-left: 2%;
   &__link {
     font-size: (13 / 16) + rem;
     color: $white;
@@ -154,47 +191,49 @@ header {
 }
 
 .features {
-  max-width: 1100px;
-  height: 455px;
+  width: 1100px;
   padding-top: 120px;
-  padding-bottom: 120px;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-between;
+  text-align: center;
   &__img {
     width: 60px;
     height: 60px;
     margin: auto;
-    border: 1px dashed grey;
   }
   &__title {
-    width: 140px;
-    height: 20px;
-    margin: auto;
-    border: 1px solid red;
+    margin: 32px auto;
+    @include fonts($raleway, (14 / 16) + rem, bold, uppercase, #2d3033);
   }
   &__description {
     width: 310px;
-    height: 100px;
-    border: 1px solid black;
+    margin-top: 25px;
+    margin-bottom: 35%;
+    margin-left: 5%;
+    margin-right: 5%;
+    line-height: 1.5;
+    box-sizing: border-box;
+    @include fonts($raleway, (14 / 16) + rem, normal, normal, #6c7279);
   }
 }
 
 .gallery {
-  max-width: 1900px;
+  max-width: 2370px;
+  margin: auto;
   display: flex;
-  justify-content: center;
   flex-wrap: wrap;
+  justify-content: center;
+  box-sizing: border-box;
   &__img {
-    max-width: $gall-w;
-    max-height: $gall-h;
+    @include size(470px, 355px);
     margin: 0.1%;
     position: relative;
     .red-glass {
-        display: none;
+      display: none;
     }
     &:hover .red-glass {
-        @extend %gallery-hover;
+      @extend %gallery-hover;
     }
     img {
       width: 100%;
@@ -204,16 +243,39 @@ header {
 }
 
 .team {
-  height: 780px;
-  padding-top: 8%;
+  height: 100%;
+  padding-top: 3%;
+  padding-bottom: 2%;
   display: flex;
-//   flex-wrap: wrap;
+  flex-wrap: wrap;
+  justify-content: center;
+  box-sizing: border-box;
+  &__about-me {
+    width: 270px;
+    margin: 0 0.5%;
+  }
+  &__my-name {
+    margin-top: 30px;
+    font-size: (22 / 16) + rem;
+    font-weight: lighter;
+    color: #2d3033;
+  }
+  &__my-profession {
+    margin-top: 12px;
+    font-size: (13 / 16) + rem;
+    color: $red;
+  }
+  &__my-description {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    @include fonts($raleway, (14 / 16) + rem, auto, auto, #6c7279);
+    line-height: 1.5;
+  }
 }
 
 .clients {
   display: flex;
   height: 500px;
-  //   border: 1px dashed black;
   &__img {
     width: 50%;
     background: {
@@ -225,8 +287,46 @@ header {
   }
   #slider {
     width: 50%;
-    height: 100%;
-    background-color: $purple;
+    .slick-dots {
+      bottom: 15%;
+      li {
+        width: 12px;
+        height: 12px;
+      }
+      .slick-active {
+        width: 12px;
+        height: 12px;
+        @include radius(50%);
+        background-color: #fff;
+      }
+      button {
+        width: 12px;
+        height: 12px;
+        background-color: rgba($white, 0.2);
+        @include radius(50%);
+        &::before {
+          content: "";
+        }
+      }
+    }
+    .slider-page {
+      width: 100%;
+      background-color: $purple;
+    }
+    .slider-content {
+      width: 85%;
+      height: 500px;
+      padding-top: 16%;
+      padding-left: 13%;
+      box-sizing: border-box;
+      blockquote {
+        padding-bottom: 25px;
+        @include fonts($cardo, (36 / 16) + rem, auto, auto, $white);
+      }
+      cite {
+        @include fonts($raleway, (13 / 16) + rem, bold, uppercase, $white);
+      }
+    }
   }
 }
 
@@ -267,16 +367,21 @@ footer {
     $blue: #3a3e64;
     background-color: $blue;
     .info__content {
-      max-width: 1025px;
       margin: auto;
       display: flex;
       justify-content: space-between;
       text-align: center;
-      .location {
-        width: 160px;
-      }
+      .location,
+      .social-nets,
       .about-activebox {
-        max-width: 335px;
+        width: 335px;
+      }
+      .social-nets--modifier.social-nets {
+        a {
+          border: 2px solid $white;
+          @include radius(2px);
+          color: $white;
+        }
       }
     }
   }
@@ -295,6 +400,409 @@ footer {
     .icon-heart {
       font-family: "Webdings";
       color: $red;
+    }
+  }
+}
+/* ************** @MEDIA ************** */
+
+@media screen and (max-width: 1130px) {
+  .team {
+    height: 100%;
+    display: inline-flex;
+    position: relative;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    &__about-me {
+      width: 85%;
+      display: flex;
+      align-items: flex-start;
+    }
+    &__my-name {
+      position: absolute;
+      left: 400px;
+      margin-top: 5%;
+      font-size: (22 / 16) + rem;
+      font-weight: lighter;
+      color: #2d3033;
+    }
+    &__my-profession {
+      position: absolute;
+      left: 400px;
+      margin-top: 8.5%;
+      font-size: (13 / 16) + rem;
+      color: $red;
+    }
+    &__my-description {
+      align-self: center;
+      width: 80%;
+      margin-top: 10%;
+      margin-left: 50px;
+      @include fonts($raleway, (14 / 16) + rem, auto, auto, #6c7279);
+      line-height: 1.5;
+    }
+    .social-nets {
+      position: absolute;
+      left: 400px;
+      margin-top: 225px;
+    }
+  }
+  .clients {
+    &__img {
+      background: {
+        position: 80% center;
+      }
+    }
+    #slider {
+      .slick-dots {
+        bottom: 10%;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 959px) {
+  header {
+    height: (600 / 16) + rem;
+    .header-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      .wrapper-general-head {
+        h1 {
+          @include fonts($osans, (48 / 16) + em, bold, auto, auto);
+          margin-top: 15%;
+        }
+        p {
+          margin-top: 2%;
+          font-size: (20 / 16) + rem;
+        }
+        button {
+          width: 180px;
+        }
+      }
+    }
+  }
+  .features {
+    height: 100%;
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+  .clients {
+    height: 800%;
+    flex-direction: column;
+    justify-content: center;
+    &__img {
+      width: 100%;
+      height: 400px;
+      background: {
+        size: cover;
+        repeat: no-repeat;
+        position: top;
+      }
+    }
+    #slider {
+      width: 100%;
+      .slick-dots {
+        bottom: 14%;
+      }
+      .slider-content {
+        width: 85%;
+        height: 300px;
+        padding-top: 5%;
+        padding-left: 13%;
+        blockquote {
+          padding-bottom: 1%;
+          @include fonts($cardo, (32 / 16) + rem, auto, auto, $white);
+        }
+      }
+    }
+  }
+  .info__content {
+    width: 85%;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .team {
+    &__about-me {
+      width: 85%;
+      display: flex;
+      align-items: flex-start;
+    }
+    &__my-name {
+      position: absolute;
+      left: 400px;
+      margin-top: 2%;
+      font-size: (22 / 16) + rem;
+      font-weight: lighter;
+      color: #2d3033;
+    }
+    &__my-profession {
+      position: absolute;
+      left: 400px;
+      margin-top: 6.5%;
+      font-size: (13 / 16) + rem;
+      color: $red;
+    }
+    &__my-description {
+      align-self: center;
+      width: 80%;
+      margin-top: 9%;
+      margin-left: 50px;
+      @include fonts($raleway, (14 / 16) + rem, auto, auto, #6c7279);
+      line-height: 1.5;
+    }
+    .social-nets {
+      position: absolute;
+      left: 400px;
+      margin-top: 225px;
+    }
+  }
+  #download {
+    height: 100%;
+    padding-bottom: 5%;
+    h2 {
+      @include fonts($raleway, (22 / 16) + rem, lighter, capitalize, #000);
+    }
+    p {
+      font-size: (13 / 16) + rem;
+    }
+    button {
+      width: 200px;
+      margin-top: (25 / 640) * 100%;
+    }
+  }
+  footer {
+    h5 {
+      color: $white;
+      padding-bottom: 10px;
+    }
+    p,
+    address {
+      font-size: (14 / 16) + rem;
+      line-height: 1.5;
+      color: rgba($white, 0.5);
+    }
+    .info {
+      width: 100%;
+      padding-top: 5%;
+      padding-bottom: 2%;
+      .info__content {
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        text-align: center;
+        .location,
+        .social-nets,
+        .about-activebox {
+          width: 100%;
+          padding-bottom: 3%;
+        }
+        .social-nets--modifier.social-nets {
+          a {
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            border: 1px solid $white;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 670px) {
+  header {
+    height: (600 / 16) + rem;
+    .header-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      nav {
+        display: flex;
+        flex-direction: column;
+        .logo {
+          margin-bottom: 2%;
+          padding-left: 6%;
+          img {
+            width: 30%;
+          }
+        }
+        .menu {
+          width: 95%;
+          text-align: left;
+          justify-content: space-around;
+        }
+      }
+      .wrapper-general-head {
+        h1 {
+          @include fonts($osans, (42 / 16) + em, bold, auto, auto);
+          margin-top: 15%;
+        }
+        p {
+          margin-top: 2%;
+          font-size: (18 / 16) + rem;
+        }
+        button {
+          width: 160px;
+        }
+      }
+    }
+  }
+  .team {
+    &__about-me {
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 5%;
+      // align-items: flex-start;
+    }
+    &__my-name {
+      position: static;
+      left: 0;
+      margin-top: 2%;
+      font-size: (22 / 16) + rem;
+      font-weight: lighter;
+      color: #2d3033;
+    }
+    &__my-profession {
+      position: static;
+      margin-top: 2%;
+      font-size: (13 / 16) + rem;
+      color: $red;
+    }
+    &__my-description {
+      width: 90%;
+      margin-top: 4%;
+      margin: auto;
+      @include fonts($raleway, (14 / 16) + rem, auto, auto, #6c7279);
+      line-height: 1.5;
+    }
+    .social-nets {
+      position: static;
+      margin-top: 5%;
+      a {
+        width: 30px;
+        height: 30px;
+        line-height: 30px;
+      }
+    }
+  }
+  .clients {
+    height: 80%;
+    flex-direction: column;
+    justify-content: center;
+    &__img {
+      width: 100%;
+      height: 250px;
+      background: {
+        size: cover;
+        repeat: no-repeat;
+        position: 80% top;
+      }
+    }
+    #slider {
+      .slick-dots {
+        bottom: 10%;
+      }
+      .slider-content {
+        width: 85%;
+        height: 255px;
+        padding-top: 5%;
+        padding-left: 13%;
+        blockquote {
+          @include fonts($cardo, (22 / 16) + rem, auto, auto, $white);
+        }
+        cite {
+          @include fonts($raleway, (10 / 16) + rem, bold, uppercase, $white);
+        }
+      }
+    }
+  }
+  .gallery__img {
+    @include size(270px, 155px);
+  }
+  #download {
+    height: 100%;
+    padding-bottom: 5%;
+    h2 {
+      @include fonts($raleway, 0.875rem, lighter, capitalize, #000);
+    }
+    p {
+      font-size: (9 / 16) + rem;
+    }
+    button {
+      width: 100px;
+      height: 30px;
+      font-size: 0.55rem;
+      margin-top: (25 / 640) * 100%;
+    }
+  }
+  footer {
+    h5 {
+      font-size: 0.6rem;
+    }
+    p,
+    address {
+      font-size: (10 / 16) + rem;
+      line-height: 1.4;
+    }
+    .info {
+      .social-nets--modifier.social-nets {
+        a {
+          width: 20px;
+          height: 20px;
+          line-height: 20px;
+          font-size: 0.6rem;
+        }
+      }
+    }
+  }
+  .container-copyright {
+    padding-top: 2%;
+    padding-bottom: 2%;
+    font-size: (12 / 16) + rem;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  header {
+    height: (400 / 16) + rem;
+    .header-content {
+      nav {
+        .logo {
+          margin-bottom: 2%;
+          padding-left: 6%;
+          img {
+            width: 30%;
+          }
+        }
+        .menu {
+          width: 95%;
+          align-items: center;
+          flex-direction: column;
+        }
+      }
+      .wrapper-general-head {
+        h1 {
+          @include fonts($osans, (22 / 16) + em, bold, auto, auto);
+          margin-top: 10%;
+        }
+        p {
+          margin-top: 2%;
+          font-size: (13 / 16) + rem;
+        }
+        button {
+          width: 90px;
+          height: 30px;
+          font-size: 0.55rem;
+        }
+      }
     }
   }
 }

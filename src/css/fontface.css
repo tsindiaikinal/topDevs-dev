@@ -37,4 +37,11 @@
     font-weight: normal;
     font-style: normal;
 }
+@font-face {
+    font-family: 'Cardo';
+    src: url('../fonts/Cardo-Italic.woff2') format('woff2'),
+        url('../fonts/Cardo-Italic.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+}
 
