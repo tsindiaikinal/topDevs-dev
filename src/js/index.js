@@ -32,7 +32,7 @@ xmr.onreadystatechange = function() {
         "</p>" +
         "</div>";
       featuresData.innerHTML += output;
-      console.log(featuresData);
+      // console.log(featuresData);
     });
   }
 };

@@ -8,7 +8,7 @@ $fawesome: "Font Awesome 5 Brands";
 $red: #e84545;
 $blue: #2b2e4a;
 $grey: #c6cacc;
-$white: #ffffff;
+$white: #fff;
 $purple: #53354a;
 // WIDTH
 // MICSINS
@@ -21,13 +21,16 @@ $purple: #53354a;
   font-family: $font;
   font-size: $fsize;
   font-weight: $wight;
+
   text-transform: $transform;
+
   color: $color;
 }
 @mixin radius($radius) {
-  border-radius: $radius;
   -webkit-border-radius: $radius;
   -moz-border-radius: $radius;
+  border-radius: $radius;
+
   -ms-border-radius: $radius;
   -o-border-radius: $radius;
 }
@@ -35,20 +38,27 @@ $purple: #53354a;
 
 /*  ---JOINT STYLES--- */
 %gallery-hover {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
+  line-height: 1.8;
+
   position: absolute;
   z-index: 10;
-  @include fonts($raleway, (14 / 16) + rem, bold, uppercase, $white);
-  background-color: rgba($red, 0.7);
-  text-align: center;
-  line-height: 1.8;
+
+  display: flex;
+  flex-direction: column;
+
   box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+
+  text-align: center;
+
+  background-color: rgba($red, 0.7);
+
+  justify-content: center;
+  @include fonts($raleway, (14 / 16) + rem, bold, uppercase, $white);
   p {
     font-weight: normal;
+
     text-transform: capitalize;
   }
 }
@@ -63,8 +73,8 @@ $purple: #53354a;
 .team,
 .download-now,
 .info__content {
-  max-width: 1170px;
   width: 100%;
+  max-width: 1170px;
   margin: auto;
 }
 h1,
@@ -78,28 +88,37 @@ button,
 }
 
 li {
-  list-style: none;
   display: inline-block;
+
+  list-style: none;
 }
 a {
   text-decoration: none;
 }
 button {
   height: 46px;
-  border: none;
-  @include radius(2px);
-  @include fonts($raleway, (13 / 16) + rem, bold, auto, #ffffff);
-  background-color: $red;
+
   cursor: pointer;
+
+  border: none;
+  background-color: $red;
+
+  @include radius(2px);
+  @include fonts($raleway, (13 / 16) + rem, bold, auto, #fff);
 }
 .social-nets {
   a {
+    line-height: 40px;
+
     display: inline-block;
+
     width: 44px;
     height: 44px;
-    border: 1px solid #e8ecee;
+
     text-align: center;
-    line-height: 40px;
+
+    border: 1px solid #e8ecee;
+
     @include fonts($fawesome, (18 / 16) + rem, auto, auto, $grey);
   }
   &__item:nth-of-type(1) a::after {
@@ -124,52 +143,64 @@ body {
 }
 
 header {
+  position: relative;
+
   width: 100%;
   height: (750 / 16) + rem;
-  position: relative;
+
   color: $white;
   background: {
+    position: center;
+
     image: url(../img/header-img.jpg);
     size: cover;
     repeat: no-repeat;
-    position: center;
     // blend-mode: multiply;
   }
   .color-layer {
-    background-color: rgba($blue, 0.9);
+    position: absolute;
+
     width: 100%;
     height: 100%;
-    position: absolute;
+
+    background-color: rgba($blue, 0.9);
   }
 }
 
 .header-content {
   display: flex;
   flex-direction: column;
+
   align-items: center;
   nav {
+    display: flex;
+
     width: 100%;
     margin-top: 3.5%;
-    display: flex;
+
     justify-content: space-between;
     align-self: flex-end;
     .logo {
       display: inline-block;
-      padding-left: 2%;
+
       padding-right: 2%;
+      padding-left: 2%;
     }
   }
   .wrapper-general-head {
     width: (935 / 1185) * 100%;
+
     text-align: center;
     h1 {
-      @include fonts($osans, (65 / 16) + em, bold, auto, auto);
       margin-top: 20%;
+
+      @include fonts($osans, (65 / 16) + em, bold, auto, auto);
       // align-self: center;
     }
     p {
-      margin-top: 2%;
       font-size: (22 / 16) + rem;
+
+      margin-top: 2%;
     }
     button {
       width: 200px;
@@ -179,24 +210,30 @@ header {
 }
 
 .menu {
-  width: 595px;
   display: flex;
-  justify-content: space-between;
+
+  width: 595px;
   padding-right: 2%;
   padding-left: 2%;
+
+  justify-content: space-between;
   &__link {
     font-size: (13 / 16) + rem;
+
     color: $white;
   }
 }
 
 .features {
-  width: 1100px;
-  padding-top: 120px;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+
+  max-width: 1100px;
+  padding-top: 120px;
+
   text-align: center;
+
+  flex-wrap: wrap;
+  justify-content: space-around;
   &__img {
     width: 60px;
     height: 60px;
@@ -204,31 +241,35 @@ header {
   }
   &__title {
     margin: 32px auto;
+
     @include fonts($raleway, (14 / 16) + rem, bold, uppercase, #2d3033);
   }
   &__description {
+    line-height: 1.5;
+
     width: 310px;
     margin-top: 25px;
     margin-bottom: 35%;
-    margin-left: 5%;
-    margin-right: 5%;
-    line-height: 1.5;
-    box-sizing: border-box;
+
     @include fonts($raleway, (14 / 16) + rem, normal, normal, #6c7279);
   }
 }
 
 .gallery {
+  display: flex;
+
+  box-sizing: border-box;
   max-width: 2370px;
   margin: auto;
-  display: flex;
+
   flex-wrap: wrap;
   justify-content: center;
-  box-sizing: border-box;
   &__img {
-    @include size(470px, 355px);
-    margin: 0.1%;
     position: relative;
+
+    margin: 0.1%;
+
+    @include size(470px, 355px);
     .red-glass {
       display: none;
     }
@@ -243,46 +284,57 @@ header {
 }
 
 .team {
+  display: flex;
+
+  box-sizing: border-box;
   height: 100%;
   padding-top: 3%;
   padding-bottom: 2%;
-  display: flex;
+
   flex-wrap: wrap;
   justify-content: center;
-  box-sizing: border-box;
   &__about-me {
     width: 270px;
     margin: 0 0.5%;
   }
   &__my-name {
-    margin-top: 30px;
     font-size: (22 / 16) + rem;
     font-weight: lighter;
+
+    margin-top: 30px;
+
     color: #2d3033;
   }
   &__my-profession {
-    margin-top: 12px;
     font-size: (13 / 16) + rem;
+
+    margin-top: 12px;
+
     color: $red;
   }
   &__my-description {
+    line-height: 1.5;
+
     margin-top: 30px;
     margin-bottom: 30px;
+
     @include fonts($raleway, (14 / 16) + rem, auto, auto, #6c7279);
-    line-height: 1.5;
   }
 }
 
 .clients {
   display: flex;
+
   height: 500px;
   &__img {
     width: 50%;
+
     background: {
+      position: center;
+
       image: url(../img/clients.jpg);
       size: cover;
       repeat: no-repeat;
-      position: center;
     }
   }
   #slider {
@@ -296,13 +348,17 @@ header {
       .slick-active {
         width: 12px;
         height: 12px;
-        @include radius(50%);
+
         background-color: #fff;
+
+        @include radius(50%);
       }
       button {
         width: 12px;
         height: 12px;
+
         background-color: rgba($white, 0.2);
+
         @include radius(50%);
         &::before {
           content: "";
@@ -311,16 +367,18 @@ header {
     }
     .slider-page {
       width: 100%;
+
       background-color: $purple;
     }
     .slider-content {
+      box-sizing: border-box;
       width: 85%;
       height: 500px;
       padding-top: 16%;
       padding-left: 13%;
-      box-sizing: border-box;
       blockquote {
         padding-bottom: 25px;
+
         @include fonts($cardo, (36 / 16) + rem, auto, auto, $white);
       }
       cite {
@@ -331,16 +389,20 @@ header {
 }
 
 #download {
-  max-width: 640px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+
+  max-width: 640px;
   height: 340px;
   margin: auto;
+
   text-align: center;
+
+  align-items: center;
+  justify-content: center;
   h2 {
     margin-bottom: (15 / 640) * 100%;
+
     @include fonts($raleway, (28 / 16) + rem, lighter, capitalize, #000);
   }
   button {
@@ -351,26 +413,33 @@ header {
 
 footer {
   h5 {
-    color: $white;
     padding-bottom: 20px;
+
+    color: $white;
   }
   p,
   address {
     font-size: (14 / 16) + rem;
     line-height: 1.5;
+
     color: rgba($white, 0.5);
   }
   .info {
     width: 100%;
     padding-top: 5.5%;
     padding-bottom: 85px;
-    $blue: #3a3e64;
+
     background-color: $blue;
+
+    $blue: #3a3e64;
     .info__content {
-      margin: auto;
       display: flex;
-      justify-content: space-between;
+
+      margin: auto;
+
       text-align: center;
+
+      justify-content: space-between;
       .location,
       .social-nets,
       .about-activebox {
@@ -378,74 +447,99 @@ footer {
       }
       .social-nets--modifier.social-nets {
         a {
-          border: 2px solid $white;
-          @include radius(2px);
           color: $white;
+          border: 2px solid $white;
+
+          @include radius(2px);
         }
       }
     }
   }
   .container-copyright {
+    font-size: (14 / 16) + rem;
+
     padding-top: 25px;
     padding-bottom: 25px;
-    font-size: (14 / 16) + rem;
-    $grey: #808080;
-    color: $grey;
+
     text-align: center;
-    $blue: #313454;
+
+    color: $grey;
     background-color: $blue;
+
+    $grey: #808080;
+    $blue: #313454;
     .designer {
       color: $white;
     }
     .icon-heart {
       font-family: "Webdings";
+
       color: $red;
     }
   }
 }
 /* ************** @MEDIA ************** */
+// @media screen and (max-width: 1270px) {
+//   .gallery__img {
+//     @include size(300px, 205px);
+//   }
+// }
 
 @media screen and (max-width: 1130px) {
   .team {
-    height: 100%;
-    display: inline-flex;
     position: relative;
+
+    display: inline-flex;
+
+    box-sizing: border-box;
+    height: 100%;
     padding-top: 5%;
     padding-bottom: 5%;
+
     justify-content: center;
     align-items: center;
-    box-sizing: border-box;
     &__about-me {
-      width: 85%;
       display: flex;
+
+      width: 85%;
+
       align-items: flex-start;
     }
     &__my-name {
-      position: absolute;
-      left: 400px;
-      margin-top: 5%;
       font-size: (22 / 16) + rem;
       font-weight: lighter;
+
+      position: absolute;
+      left: 400px;
+
+      margin-top: 5%;
+
       color: #2d3033;
     }
     &__my-profession {
+      font-size: (13 / 16) + rem;
+
       position: absolute;
       left: 400px;
+
       margin-top: 8.5%;
-      font-size: (13 / 16) + rem;
+
       color: $red;
     }
     &__my-description {
-      align-self: center;
+      line-height: 1.5;
+
       width: 80%;
       margin-top: 10%;
       margin-left: 50px;
+
+      align-self: center;
       @include fonts($raleway, (14 / 16) + rem, auto, auto, #6c7279);
-      line-height: 1.5;
     }
     .social-nets {
       position: absolute;
       left: 400px;
+
       margin-top: 225px;
     }
   }
@@ -469,15 +563,18 @@ footer {
     .header-content {
       display: flex;
       flex-direction: column;
+
       align-items: center;
       .wrapper-general-head {
         h1 {
-          @include fonts($osans, (48 / 16) + em, bold, auto, auto);
           margin-top: 15%;
+
+          @include fonts($osans, (48 / 16) + em, bold, auto, auto);
         }
         p {
-          margin-top: 2%;
           font-size: (20 / 16) + rem;
+
+          margin-top: 2%;
         }
         button {
           width: 180px;
@@ -490,17 +587,24 @@ footer {
     padding-top: 60px;
     padding-bottom: 60px;
   }
+  .gallery__img {
+    @include size(370px, 255px);
+  }
   .clients {
-    height: 800%;
     flex-direction: column;
+
+    height: 800%;
+
     justify-content: center;
     &__img {
       width: 100%;
       height: 400px;
+
       background: {
+        position: top;
+
         size: cover;
         repeat: no-repeat;
-        position: top;
       }
     }
     #slider {
@@ -515,6 +619,7 @@ footer {
         padding-left: 13%;
         blockquote {
           padding-bottom: 1%;
+
           @include fonts($cardo, (32 / 16) + rem, auto, auto, $white);
         }
       }
@@ -526,38 +631,75 @@ footer {
 }
 
 @media screen and (max-width: 767px) {
+  .features {
+    display: flex;
+
+    max-width: 1100px;
+    padding-top: 60px;
+
+    text-align: center;
+
+    flex-wrap: wrap;
+    justify-content: space-around;
+    &__img {
+      width: 60px;
+      height: 60px;
+      margin: auto;
+    }
+    &__title {
+      margin: 15px auto;
+    }
+    &__description {
+      margin-top: 15px;
+      margin-bottom: 15%;
+    }
+  }
+  .gallery__img {
+    @include size(300px, 205px);
+  }
   .team {
     &__about-me {
-      width: 85%;
       display: flex;
+
+      width: 85%;
+
       align-items: flex-start;
     }
     &__my-name {
-      position: absolute;
-      left: 400px;
-      margin-top: 2%;
       font-size: (22 / 16) + rem;
       font-weight: lighter;
+
+      position: absolute;
+      left: 400px;
+
+      margin-top: 2%;
+
       color: #2d3033;
     }
     &__my-profession {
+      font-size: (13 / 16) + rem;
+
       position: absolute;
       left: 400px;
+
       margin-top: 6.5%;
-      font-size: (13 / 16) + rem;
+
       color: $red;
     }
     &__my-description {
-      align-self: center;
+      line-height: 1.5;
+
       width: 80%;
       margin-top: 9%;
       margin-left: 50px;
+
+      align-self: center;
       @include fonts($raleway, (14 / 16) + rem, auto, auto, #6c7279);
-      line-height: 1.5;
     }
     .social-nets {
       position: absolute;
       left: 400px;
+
       margin-top: 225px;
     }
   }
@@ -577,13 +719,15 @@ footer {
   }
   footer {
     h5 {
-      color: $white;
       padding-bottom: 10px;
+
+      color: $white;
     }
     p,
     address {
       font-size: (14 / 16) + rem;
       line-height: 1.5;
+
       color: rgba($white, 0.5);
     }
     .info {
@@ -591,11 +735,14 @@ footer {
       padding-top: 5%;
       padding-bottom: 2%;
       .info__content {
-        margin: auto;
         display: flex;
         flex-direction: column;
-        justify-content: space-around;
+
+        margin: auto;
+
         text-align: center;
+
+        justify-content: space-around;
         .location,
         .social-nets,
         .about-activebox {
@@ -604,9 +751,11 @@ footer {
         }
         .social-nets--modifier.social-nets {
           a {
+            line-height: 30px;
+
             width: 30px;
             height: 30px;
-            line-height: 30px;
+
             border: 1px solid $white;
           }
         }
@@ -621,6 +770,7 @@ footer {
     .header-content {
       display: flex;
       flex-direction: column;
+
       align-items: center;
       nav {
         display: flex;
@@ -634,18 +784,22 @@ footer {
         }
         .menu {
           width: 95%;
+
           text-align: left;
+
           justify-content: space-around;
         }
       }
       .wrapper-general-head {
         h1 {
-          @include fonts($osans, (42 / 16) + em, bold, auto, auto);
           margin-top: 15%;
+
+          @include fonts($osans, (42 / 16) + em, bold, auto, auto);
         }
         p {
-          margin-top: 2%;
           font-size: (18 / 16) + rem;
+
+          margin-top: 2%;
         }
         button {
           width: 160px;
@@ -655,55 +809,71 @@ footer {
   }
   .team {
     &__about-me {
-      width: 50%;
       display: flex;
       flex-direction: column;
-      align-items: center;
+
+      width: 50%;
       margin-bottom: 5%;
+
+      align-items: center;
       // align-items: flex-start;
     }
     &__my-name {
-      position: static;
-      left: 0;
-      margin-top: 2%;
       font-size: (22 / 16) + rem;
       font-weight: lighter;
+
+      position: static;
+      left: 0;
+
+      margin-top: 2%;
+
       color: #2d3033;
     }
     &__my-profession {
-      position: static;
-      margin-top: 2%;
       font-size: (13 / 16) + rem;
+
+      position: static;
+
+      margin-top: 2%;
+
       color: $red;
     }
     &__my-description {
-      width: 90%;
-      margin-top: 4%;
-      margin: auto;
-      @include fonts($raleway, (14 / 16) + rem, auto, auto, #6c7279);
       line-height: 1.5;
+
+      width: 90%;
+      margin: auto;
+      margin-top: 4%;
+
+      @include fonts($raleway, (14 / 16) + rem, auto, auto, #6c7279);
     }
     .social-nets {
       position: static;
+
       margin-top: 5%;
       a {
+        line-height: 30px;
+
         width: 30px;
         height: 30px;
-        line-height: 30px;
       }
     }
   }
   .clients {
-    height: 80%;
     flex-direction: column;
+
+    height: 80%;
+
     justify-content: center;
     &__img {
       width: 100%;
       height: 250px;
+
       background: {
+        position: 80% top;
+
         size: cover;
         repeat: no-repeat;
-        position: 80% top;
       }
     }
     #slider {
@@ -737,9 +907,10 @@ footer {
       font-size: (9 / 16) + rem;
     }
     button {
+      font-size: 0.55rem;
+
       width: 100px;
       height: 30px;
-      font-size: 0.55rem;
       margin-top: (25 / 640) * 100%;
     }
   }
@@ -755,18 +926,20 @@ footer {
     .info {
       .social-nets--modifier.social-nets {
         a {
+          font-size: 0.6rem;
+          line-height: 20px;
+
           width: 20px;
           height: 20px;
-          line-height: 20px;
-          font-size: 0.6rem;
         }
       }
     }
   }
   .container-copyright {
+    font-size: (12 / 16) + rem;
+
     padding-top: 2%;
     padding-bottom: 2%;
-    font-size: (12 / 16) + rem;
   }
 }
 
@@ -783,24 +956,29 @@ footer {
           }
         }
         .menu {
-          width: 95%;
-          align-items: center;
           flex-direction: column;
+
+          width: 95%;
+
+          align-items: center;
         }
       }
       .wrapper-general-head {
         h1 {
-          @include fonts($osans, (22 / 16) + em, bold, auto, auto);
           margin-top: 10%;
+
+          @include fonts($osans, (22 / 16) + em, bold, auto, auto);
         }
         p {
-          margin-top: 2%;
           font-size: (13 / 16) + rem;
+
+          margin-top: 2%;
         }
         button {
+          font-size: 0.55rem;
+
           width: 90px;
           height: 30px;
-          font-size: 0.55rem;
         }
       }
     }

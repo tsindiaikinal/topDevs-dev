@@ -2,22 +2,22 @@
 /*Varibles end */
 /*  ---JOINT STYLES--- */
 .gallery__img:hover .red-glass {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
+  line-height: 1.8;
   position: absolute;
   z-index: 10;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  background-color: rgba(232, 69, 69, 0.7);
+  justify-content: center;
   font-family: "Raleway";
   font-size: 0.875rem;
   font-weight: bold;
   text-transform: uppercase;
-  color: #ffffff;
-  background-color: rgba(232, 69, 69, 0.7);
-  text-align: center;
-  line-height: 1.8;
-  box-sizing: border-box; }
+  color: #fff; }
   .gallery__img:hover .red-glass p {
     font-weight: normal;
     text-transform: capitalize; }
@@ -31,8 +31,8 @@
 .team,
 .download-now,
 .info__content {
-  max-width: 1170px;
   width: 100%;
+  max-width: 1170px;
   margin: auto; }
 
 h1,
@@ -45,35 +45,35 @@ button,
   text-transform: uppercase; }
 
 li {
-  list-style: none;
-  display: inline-block; }
+  display: inline-block;
+  list-style: none; }
 
 a {
   text-decoration: none; }
 
 button {
   height: 46px;
+  cursor: pointer;
   border: none;
-  border-radius: 2px;
+  background-color: #e84545;
   -webkit-border-radius: 2px;
   -moz-border-radius: 2px;
+  border-radius: 2px;
   -ms-border-radius: 2px;
   -o-border-radius: 2px;
   font-family: "Raleway";
   font-size: 0.8125rem;
   font-weight: bold;
   text-transform: auto;
-  color: #ffffff;
-  background-color: #e84545;
-  cursor: pointer; }
+  color: #fff; }
 
 .social-nets a {
+  line-height: 40px;
   display: inline-block;
   width: 44px;
   height: 44px;
-  border: 1px solid #e8ecee;
   text-align: center;
-  line-height: 40px;
+  border: 1px solid #e8ecee;
   font-family: "Font Awesome 5 Brands";
   font-size: 1.125rem;
   font-weight: auto;
@@ -97,68 +97,68 @@ body {
   width: 100%; }
 
 header {
+  position: relative;
   width: 100%;
   height: 46.875rem;
-  position: relative;
-  color: #ffffff;
+  color: #fff;
+  background-position: center;
   background-image: url(../img/header-img.jpg);
   background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center; }
+  background-repeat: no-repeat; }
   header .color-layer {
-    background-color: rgba(43, 46, 74, 0.9);
+    position: absolute;
     width: 100%;
     height: 100%;
-    position: absolute; }
+    background-color: rgba(43, 46, 74, 0.9); }
 
 .header-content {
   display: flex;
   flex-direction: column;
   align-items: center; }
   .header-content nav {
+    display: flex;
     width: 100%;
     margin-top: 3.5%;
-    display: flex;
     justify-content: space-between;
     align-self: flex-end; }
     .header-content nav .logo {
       display: inline-block;
-      padding-left: 2%;
-      padding-right: 2%; }
+      padding-right: 2%;
+      padding-left: 2%; }
   .header-content .wrapper-general-head {
     width: 78.90295%;
     text-align: center; }
     .header-content .wrapper-general-head h1 {
+      margin-top: 20%;
       font-family: "Open Sans";
       font-size: 4.0625em;
       font-weight: bold;
       text-transform: auto;
-      color: auto;
-      margin-top: 20%; }
+      color: auto; }
     .header-content .wrapper-general-head p {
-      margin-top: 2%;
-      font-size: 1.375rem; }
+      font-size: 1.375rem;
+      margin-top: 2%; }
     .header-content .wrapper-general-head button {
       width: 200px;
       margin-top: 9.5%; }
 
 .menu {
-  width: 595px;
   display: flex;
-  justify-content: space-between;
+  width: 595px;
   padding-right: 2%;
-  padding-left: 2%; }
+  padding-left: 2%;
+  justify-content: space-between; }
   .menu__link {
     font-size: 0.8125rem;
-    color: #ffffff; }
+    color: #fff; }
 
 .features {
-  width: 1100px;
-  padding-top: 120px;
   display: flex;
+  max-width: 1100px;
+  padding-top: 120px;
+  text-align: center;
   flex-wrap: wrap;
-  justify-content: space-between;
-  text-align: center; }
+  justify-content: space-around; }
   .features__img {
     width: 60px;
     height: 60px;
@@ -171,13 +171,10 @@ header {
     text-transform: uppercase;
     color: #2d3033; }
   .features__description {
+    line-height: 1.5;
     width: 310px;
     margin-top: 25px;
     margin-bottom: 35%;
-    margin-left: 5%;
-    margin-right: 5%;
-    line-height: 1.5;
-    box-sizing: border-box;
     font-family: "Raleway";
     font-size: 0.875rem;
     font-weight: normal;
@@ -185,17 +182,17 @@ header {
     color: #6c7279; }
 
 .gallery {
+  display: flex;
+  box-sizing: border-box;
   max-width: 2370px;
   margin: auto;
-  display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  box-sizing: border-box; }
+  justify-content: center; }
   .gallery__img {
-    width: 470px;
-    height: 355px;
+    position: relative;
     margin: 0.1%;
-    position: relative; }
+    width: 470px;
+    height: 355px; }
     .gallery__img .red-glass {
       display: none; }
     .gallery__img img {
@@ -203,44 +200,44 @@ header {
       height: 100%; }
 
 .team {
+  display: flex;
+  box-sizing: border-box;
   height: 100%;
   padding-top: 3%;
   padding-bottom: 2%;
-  display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  box-sizing: border-box; }
+  justify-content: center; }
   .team__about-me {
     width: 270px;
     margin: 0 0.5%; }
   .team__my-name {
-    margin-top: 30px;
     font-size: 1.375rem;
     font-weight: lighter;
+    margin-top: 30px;
     color: #2d3033; }
   .team__my-profession {
-    margin-top: 12px;
     font-size: 0.8125rem;
+    margin-top: 12px;
     color: #e84545; }
   .team__my-description {
+    line-height: 1.5;
     margin-top: 30px;
     margin-bottom: 30px;
     font-family: "Raleway";
     font-size: 0.875rem;
     font-weight: auto;
     text-transform: auto;
-    color: #6c7279;
-    line-height: 1.5; }
+    color: #6c7279; }
 
 .clients {
   display: flex;
   height: 500px; }
   .clients__img {
     width: 50%;
+    background-position: center;
     background-image: url(../img/clients.jpg);
     background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center; }
+    background-repeat: no-repeat; }
   .clients #slider {
     width: 50%; }
     .clients #slider .slick-dots {
@@ -251,19 +248,19 @@ header {
       .clients #slider .slick-dots .slick-active {
         width: 12px;
         height: 12px;
-        border-radius: 50%;
+        background-color: #fff;
         -webkit-border-radius: 50%;
         -moz-border-radius: 50%;
+        border-radius: 50%;
         -ms-border-radius: 50%;
-        -o-border-radius: 50%;
-        background-color: #fff; }
+        -o-border-radius: 50%; }
       .clients #slider .slick-dots button {
         width: 12px;
         height: 12px;
         background-color: rgba(255, 255, 255, 0.2);
-        border-radius: 50%;
         -webkit-border-radius: 50%;
         -moz-border-radius: 50%;
+        border-radius: 50%;
         -ms-border-radius: 50%;
         -o-border-radius: 50%; }
         .clients #slider .slick-dots button::before {
@@ -272,34 +269,34 @@ header {
       width: 100%;
       background-color: #53354a; }
     .clients #slider .slider-content {
+      box-sizing: border-box;
       width: 85%;
       height: 500px;
       padding-top: 16%;
-      padding-left: 13%;
-      box-sizing: border-box; }
+      padding-left: 13%; }
       .clients #slider .slider-content blockquote {
         padding-bottom: 25px;
         font-family: "Cardo";
         font-size: 2.25rem;
         font-weight: auto;
         text-transform: auto;
-        color: #ffffff; }
+        color: #fff; }
       .clients #slider .slider-content cite {
         font-family: "Raleway";
         font-size: 0.8125rem;
         font-weight: bold;
         text-transform: uppercase;
-        color: #ffffff; }
+        color: #fff; }
 
 #download {
-  max-width: 640px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  max-width: 640px;
   height: 340px;
   margin: auto;
-  text-align: center; }
+  text-align: center;
+  align-items: center;
+  justify-content: center; }
   #download h2 {
     margin-bottom: 2.34375%;
     font-family: "Raleway";
@@ -312,8 +309,8 @@ header {
     margin-top: 6.25%; }
 
 footer h5 {
-  color: #ffffff;
-  padding-bottom: 20px; }
+  padding-bottom: 20px;
+  color: #fff; }
 
 footer p,
 footer address {
@@ -325,34 +322,34 @@ footer .info {
   width: 100%;
   padding-top: 5.5%;
   padding-bottom: 85px;
-  background-color: #3a3e64; }
+  background-color: #2b2e4a; }
   footer .info .info__content {
-    margin: auto;
     display: flex;
-    justify-content: space-between;
-    text-align: center; }
+    margin: auto;
+    text-align: center;
+    justify-content: space-between; }
     footer .info .info__content .location,
     footer .info .info__content .social-nets,
     footer .info .info__content .about-activebox {
       width: 335px; }
     footer .info .info__content .social-nets--modifier.social-nets a {
-      border: 2px solid #ffffff;
-      border-radius: 2px;
+      color: #fff;
+      border: 2px solid #fff;
       -webkit-border-radius: 2px;
       -moz-border-radius: 2px;
+      border-radius: 2px;
       -ms-border-radius: 2px;
-      -o-border-radius: 2px;
-      color: #ffffff; }
+      -o-border-radius: 2px; }
 
 footer .container-copyright {
+  font-size: 0.875rem;
   padding-top: 25px;
   padding-bottom: 25px;
-  font-size: 0.875rem;
-  color: #808080;
   text-align: center;
-  background-color: #313454; }
+  color: #c6cacc;
+  background-color: #2b2e4a; }
   footer .container-copyright .designer {
-    color: #ffffff; }
+    color: #fff; }
   footer .container-copyright .icon-heart {
     font-family: "Webdings";
     color: #e84545; }
@@ -360,42 +357,42 @@ footer .container-copyright {
 /* ************** @MEDIA ************** */
 @media screen and (max-width: 1130px) {
   .team {
-    height: 100%;
-    display: inline-flex;
     position: relative;
+    display: inline-flex;
+    box-sizing: border-box;
+    height: 100%;
     padding-top: 5%;
     padding-bottom: 5%;
     justify-content: center;
-    align-items: center;
-    box-sizing: border-box; }
+    align-items: center; }
     .team__about-me {
-      width: 85%;
       display: flex;
+      width: 85%;
       align-items: flex-start; }
     .team__my-name {
+      font-size: 1.375rem;
+      font-weight: lighter;
       position: absolute;
       left: 400px;
       margin-top: 5%;
-      font-size: 1.375rem;
-      font-weight: lighter;
       color: #2d3033; }
     .team__my-profession {
+      font-size: 0.8125rem;
       position: absolute;
       left: 400px;
       margin-top: 8.5%;
-      font-size: 0.8125rem;
       color: #e84545; }
     .team__my-description {
-      align-self: center;
+      line-height: 1.5;
       width: 80%;
       margin-top: 10%;
       margin-left: 50px;
+      align-self: center;
       font-family: "Raleway";
       font-size: 0.875rem;
       font-weight: auto;
       text-transform: auto;
-      color: #6c7279;
-      line-height: 1.5; }
+      color: #6c7279; }
     .team .social-nets {
       position: absolute;
       left: 400px;
@@ -413,31 +410,34 @@ footer .container-copyright {
       flex-direction: column;
       align-items: center; }
       header .header-content .wrapper-general-head h1 {
+        margin-top: 15%;
         font-family: "Open Sans";
         font-size: 3em;
         font-weight: bold;
         text-transform: auto;
-        color: auto;
-        margin-top: 15%; }
+        color: auto; }
       header .header-content .wrapper-general-head p {
-        margin-top: 2%;
-        font-size: 1.25rem; }
+        font-size: 1.25rem;
+        margin-top: 2%; }
       header .header-content .wrapper-general-head button {
         width: 180px; }
   .features {
     height: 100%;
     padding-top: 60px;
     padding-bottom: 60px; }
+  .gallery__img {
+    width: 370px;
+    height: 255px; }
   .clients {
-    height: 800%;
     flex-direction: column;
+    height: 800%;
     justify-content: center; }
     .clients__img {
       width: 100%;
       height: 400px;
+      background-position: top;
       background-size: cover;
-      background-repeat: no-repeat;
-      background-position: top; }
+      background-repeat: no-repeat; }
     .clients #slider {
       width: 100%; }
       .clients #slider .slick-dots {
@@ -453,39 +453,58 @@ footer .container-copyright {
           font-size: 2rem;
           font-weight: auto;
           text-transform: auto;
-          color: #ffffff; }
+          color: #fff; }
   .info__content {
     width: 85%; } }
 
 @media screen and (max-width: 767px) {
-  .team__about-me {
-    width: 85%;
+  .features {
     display: flex;
+    max-width: 1100px;
+    padding-top: 60px;
+    text-align: center;
+    flex-wrap: wrap;
+    justify-content: space-around; }
+    .features__img {
+      width: 60px;
+      height: 60px;
+      margin: auto; }
+    .features__title {
+      margin: 15px auto; }
+    .features__description {
+      margin-top: 15px;
+      margin-bottom: 15%; }
+  .gallery__img {
+    width: 300px;
+    height: 205px; }
+  .team__about-me {
+    display: flex;
+    width: 85%;
     align-items: flex-start; }
   .team__my-name {
+    font-size: 1.375rem;
+    font-weight: lighter;
     position: absolute;
     left: 400px;
     margin-top: 2%;
-    font-size: 1.375rem;
-    font-weight: lighter;
     color: #2d3033; }
   .team__my-profession {
+    font-size: 0.8125rem;
     position: absolute;
     left: 400px;
     margin-top: 6.5%;
-    font-size: 0.8125rem;
     color: #e84545; }
   .team__my-description {
-    align-self: center;
+    line-height: 1.5;
     width: 80%;
     margin-top: 9%;
     margin-left: 50px;
+    align-self: center;
     font-family: "Raleway";
     font-size: 0.875rem;
     font-weight: auto;
     text-transform: auto;
-    color: #6c7279;
-    line-height: 1.5; }
+    color: #6c7279; }
   .team .social-nets {
     position: absolute;
     left: 400px;
@@ -505,8 +524,8 @@ footer .container-copyright {
       width: 200px;
       margin-top: 3.90625%; }
   footer h5 {
-    color: #ffffff;
-    padding-bottom: 10px; }
+    padding-bottom: 10px;
+    color: #fff; }
   footer p,
   footer address {
     font-size: 0.875rem;
@@ -517,21 +536,21 @@ footer .container-copyright {
     padding-top: 5%;
     padding-bottom: 2%; }
     footer .info .info__content {
-      margin: auto;
       display: flex;
       flex-direction: column;
-      justify-content: space-around;
-      text-align: center; }
+      margin: auto;
+      text-align: center;
+      justify-content: space-around; }
       footer .info .info__content .location,
       footer .info .info__content .social-nets,
       footer .info .info__content .about-activebox {
         width: 100%;
         padding-bottom: 3%; }
       footer .info .info__content .social-nets--modifier.social-nets a {
+        line-height: 30px;
         width: 30px;
         height: 30px;
-        line-height: 30px;
-        border: 1px solid #ffffff; } }
+        border: 1px solid #fff; } }
 
 @media screen and (max-width: 670px) {
   header {
@@ -553,62 +572,62 @@ footer .container-copyright {
           text-align: left;
           justify-content: space-around; }
       header .header-content .wrapper-general-head h1 {
+        margin-top: 15%;
         font-family: "Open Sans";
         font-size: 2.625em;
         font-weight: bold;
         text-transform: auto;
-        color: auto;
-        margin-top: 15%; }
+        color: auto; }
       header .header-content .wrapper-general-head p {
-        margin-top: 2%;
-        font-size: 1.125rem; }
+        font-size: 1.125rem;
+        margin-top: 2%; }
       header .header-content .wrapper-general-head button {
         width: 160px; }
   .team__about-me {
-    width: 50%;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    margin-bottom: 5%; }
+    width: 50%;
+    margin-bottom: 5%;
+    align-items: center; }
   .team__my-name {
+    font-size: 1.375rem;
+    font-weight: lighter;
     position: static;
     left: 0;
     margin-top: 2%;
-    font-size: 1.375rem;
-    font-weight: lighter;
     color: #2d3033; }
   .team__my-profession {
+    font-size: 0.8125rem;
     position: static;
     margin-top: 2%;
-    font-size: 0.8125rem;
     color: #e84545; }
   .team__my-description {
+    line-height: 1.5;
     width: 90%;
-    margin-top: 4%;
     margin: auto;
+    margin-top: 4%;
     font-family: "Raleway";
     font-size: 0.875rem;
     font-weight: auto;
     text-transform: auto;
-    color: #6c7279;
-    line-height: 1.5; }
+    color: #6c7279; }
   .team .social-nets {
     position: static;
     margin-top: 5%; }
     .team .social-nets a {
+      line-height: 30px;
       width: 30px;
-      height: 30px;
-      line-height: 30px; }
+      height: 30px; }
   .clients {
-    height: 80%;
     flex-direction: column;
+    height: 80%;
     justify-content: center; }
     .clients__img {
       width: 100%;
       height: 250px;
+      background-position: 80% top;
       background-size: cover;
-      background-repeat: no-repeat;
-      background-position: 80% top; }
+      background-repeat: no-repeat; }
     .clients #slider .slick-dots {
       bottom: 10%; }
     .clients #slider .slider-content {
@@ -621,13 +640,13 @@ footer .container-copyright {
         font-size: 1.375rem;
         font-weight: auto;
         text-transform: auto;
-        color: #ffffff; }
+        color: #fff; }
       .clients #slider .slider-content cite {
         font-family: "Raleway";
         font-size: 0.625rem;
         font-weight: bold;
         text-transform: uppercase;
-        color: #ffffff; }
+        color: #fff; }
   .gallery__img {
     width: 270px;
     height: 155px; }
@@ -643,9 +662,9 @@ footer .container-copyright {
     #download p {
       font-size: 0.5625rem; }
     #download button {
+      font-size: 0.55rem;
       width: 100px;
       height: 30px;
-      font-size: 0.55rem;
       margin-top: 3.90625%; }
   footer h5 {
     font-size: 0.6rem; }
@@ -654,14 +673,14 @@ footer .container-copyright {
     font-size: 0.625rem;
     line-height: 1.4; }
   footer .info .social-nets--modifier.social-nets a {
-    width: 20px;
-    height: 20px;
+    font-size: 0.6rem;
     line-height: 20px;
-    font-size: 0.6rem; }
+    width: 20px;
+    height: 20px; }
   .container-copyright {
+    font-size: 0.75rem;
     padding-top: 2%;
-    padding-bottom: 2%;
-    font-size: 0.75rem; } }
+    padding-bottom: 2%; } }
 
 @media screen and (max-width: 479px) {
   header {
@@ -672,20 +691,20 @@ footer .container-copyright {
       header .header-content nav .logo img {
         width: 30%; }
     header .header-content nav .menu {
+      flex-direction: column;
       width: 95%;
-      align-items: center;
-      flex-direction: column; }
+      align-items: center; }
     header .header-content .wrapper-general-head h1 {
+      margin-top: 10%;
       font-family: "Open Sans";
       font-size: 1.375em;
       font-weight: bold;
       text-transform: auto;
-      color: auto;
-      margin-top: 10%; }
+      color: auto; }
     header .header-content .wrapper-general-head p {
-      margin-top: 2%;
-      font-size: 0.8125rem; }
+      font-size: 0.8125rem;
+      margin-top: 2%; }
     header .header-content .wrapper-general-head button {
+      font-size: 0.55rem;
       width: 90px;
-      height: 30px;
-      font-size: 0.55rem; } }
+      height: 30px; } }
