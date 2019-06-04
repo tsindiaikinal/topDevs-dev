@@ -42,13 +42,6 @@ const serv = () => {
     }
   });
 };
-
-// const jscript =() => {
-//   return src("src/**/*.js")
-//     .pipe(sourcemaps.init())
-//     .pipe(sourcemaps.write())
-//     .pipe(gulp.dest("dist/js"));
-//   };
   
   const babelTranspiller = () => {
      return src("src/**/*.js")
