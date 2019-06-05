@@ -1,17 +1,16 @@
 // 'use strict';
 // const gulp = require("gulp");
 const { watch, dest, src } = require("gulp");
-const { series } = require("gulp"); 
+const { series } = require("gulp");
 const sass = require("gulp-sass");
 const sourcemaps = require("gulp-sourcemaps");
 const babel = require("gulp-babel");
 const concat = require("gulp-concat");
 const csso = require("gulp-csso");
-const imagemin    = require('gulp-imagemin');
+const imagemin = require("gulp-imagemin");
 const imageminPngquant = require("imagemin-pngquant");
 const imgCompress = require("imagemin-jpeg-recompress");
-const uglify = require("gulp-uglify");
-const pipeline = require("readable-stream").pipeline;
+const minifyjs = require("gulp-js-minify");
 const browserSync = require("browser-sync").create();
 // **************************************************
 const watcher = watch([
@@ -25,12 +24,11 @@ watcher.on("change", function(path, stats) {
 });
 
 watch(["src/sass/*.scss"], function(cb) {
-  // body omitted
-   sassExt();
-    cb();
+  sassExt();
+  cb();
 });
 
-watch("src/**/index.js", function (cb) {
+watch("src/**/index.js", function(cb) {
   babelTranspiller();
   cb();
 });
@@ -43,49 +41,48 @@ const serv = () => {
   });
 };
 
-// const jscript =() => {
-//   return src("src/**/*.js")
-//     .pipe(sourcemaps.init())
-//     .pipe(sourcemaps.write())
-//     .pipe(gulp.dest("dist/js"));
-//   };
-  
-  const babelTranspiller = () => {
-     return src("src/**/*.js")
-         .pipe(sourcemaps.init())
-         .pipe(babel())
-         // .pipe(rigger())
-         .pipe(concat("all.js"))
-         .pipe.pipeline(
-        	src('src/**/*.js'),
-        	uglify(),
-        	dest('dist/js'))
-         //.pipe(uglify())
-         .pipe(sourcemaps.write("."))
-         .pipe(dest("dist/js"));
+const babeltr = () => {
+  return (
+    src([
+      "src/**/jquery-3.3.1.min.js",
+      "src/**/jquery-migrate-1.4.1.min.js",
+      "src/**/slick.min.js",
+      "src/**/index.js"
+    ])
+      .pipe(babel())
+      // .pipe(rigger())
+      .pipe(minifyjs())
+      .pipe(concat("all.min.js"))
+      //  .pipe(sourcemaps.write("."))
+      .pipe(dest("dist/js"))
+  );
 };
 
 sass.compiler = require("node-sass");
 
 const sassExt = () => {
-    return src("src/sass/**/*.scss")
-      .pipe(sass().on("error", sass.logError))
-      .pipe(dest("src/css"));
-      // .pipe(browserSync.stream());
+  return src("src/sass/**/*.scss")
+    .pipe(sass().on("error", sass.logError))
+    .pipe(dest("src/css"));
+  // .pipe(browserSync.stream());
 };
 
 const cssminim = () => {
-  return src(["src/css/style.css", "src/css/fontface.css"])
-    .pipe(csso())
-    .pipe(concat("min.styles.css"))
-    // .pipe(rename({ suffix: ".min" }))
-    .pipe(dest("dist/css"));
-}
+  return (
+    src("src/**/*.css")
+      // src(["src/css/style.css", "src/css/fontface.css"])
+      .pipe(csso())
+      .pipe(concat("style.css"))
+      .pipe(dest("dist/css/"))
+      .pipe(browserSync.stream())
+  );
+};
 const copy = () => {
   return (
     src("src/**/*.html").pipe(dest("dist")) &&
-    src("src/fonts/*").pipe(dest("dist/fonts"))
-  )
+    src("src/fonts/*").pipe(dest("dist/fonts")) &&
+    src("src/webfonts/*").pipe(dest("dist/webfonts/"))
+  );
 };
 
 const imageMin = () => {
@@ -101,18 +98,17 @@ const imageMin = () => {
         }),
         imagemin.gifsicle({ interlaced: true }),
         // imagemin.optipng({ optimizationLevel: 5 }),
-        imageminPngquant(['quality: 80']),
+        imageminPngquant(["quality: 80"]),
         imagemin.svgo({
           plugins: [{ removeViewBox: true }, { cleanupIDs: false }]
         })
       ])
     )
-    .pipe(dest("dist/images"));
-}
+    .pipe(dest("dist/img/"));
+};
 
-// exports.serv = serv;
 // exports.sassExt = sassExt;
 // exports.sasswatch = sasswatch;
-exports.babelTranspiller = babelTranspiller;
-exports.build = series(cssminim, imageMin, copy);
+exports.babeltr = babeltr;
+exports.build = series(cssminim, imageMin, babeltr, copy);
 exports.dev = series(serv);

@@ -36,5 +36,13 @@ xmr.onreadystatechange = function() {
     });
   }
 };
-xmr.open("GET", "/section-2.json", true);
+// GET JSON DATA FROM NET - GITHUB SITE
+// xmr.open(
+//   "GET",
+//   "....",
+//   true
+// );
+//  LOCAL VERSION
+xmr.open("GET", "/section-2.json");
 xmr.send();
+// **************************************

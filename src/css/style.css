@@ -36,7 +36,6 @@
   margin: auto; }
 
 h1,
-button,
 .menu__item,
 .features__head,
 .team__my-profession,
@@ -64,7 +63,7 @@ button {
   font-family: "Raleway";
   font-size: 0.8125rem;
   font-weight: bold;
-  text-transform: auto;
+  text-transform: uppercase;
   color: #fff; }
 
 .social-nets a {
@@ -109,7 +108,7 @@ header {
     position: absolute;
     width: 100%;
     height: 100%;
-    background-color: rgba(43, 46, 74, 0.9); }
+    background-color: rgba(49, 52, 84, 0.9); }
 
 .header-content {
   display: flex;
@@ -322,7 +321,7 @@ footer .info {
   width: 100%;
   padding-top: 5.5%;
   padding-bottom: 85px;
-  background-color: #2b2e4a; }
+  background-color: #3a3e64; }
   footer .info .info__content {
     display: flex;
     margin: auto;
@@ -346,8 +345,8 @@ footer .container-copyright {
   padding-top: 25px;
   padding-bottom: 25px;
   text-align: center;
-  color: #c6cacc;
-  background-color: #2b2e4a; }
+  color: #808080;
+  background-color: #313454; }
   footer .container-copyright .designer {
     color: #fff; }
   footer .container-copyright .icon-heart {
@@ -355,6 +354,11 @@ footer .container-copyright {
     color: #e84545; }
 
 /* ************** @MEDIA ************** */
+@media screen and (min-width: 1200px) and (max-width: 1280px) {
+  .gallery__img {
+    width: 297px;
+    height: 207px; } }
+
 @media screen and (max-width: 1130px) {
   .team {
     position: relative;
