@@ -27,12 +27,26 @@ $purple: #53354a;
   color: $color;
 }
 @mixin radius($radius) {
+  border-radius: $radius;
   -webkit-border-radius: $radius;
   -moz-border-radius: $radius;
-  border-radius: $radius;
-
   -ms-border-radius: $radius;
   -o-border-radius: $radius;
+}
+
+@mixin transform($param) {
+  transform: $param;
+  -webkit-transform: $param;
+  -moz-transform: $param;
+  -ms-transform: $param;
+  -o-transform: $param;
+}
+@mixin transition($param) {
+  transition: $param;
+  -webkit-transition: $param;
+  -moz-transition: $param;
+  -ms-transition: $param;
+  -o-transition: $param;
 }
 /*Varibles end */
 
@@ -187,12 +201,13 @@ header {
     }
   }
 }
-
+.menu-gamburger {
+  width: 595px;
+}
 .menu {
   display: flex;
-  width: 595px;
+  margin-left: 2%;
   padding-right: 2%;
-  padding-left: 2%;
   justify-content: space-between;
   &__link {
     font-size: (13 / 16) + rem;
@@ -728,20 +743,61 @@ footer {
       align-items: center;
       nav {
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
+
         .logo {
           margin-bottom: 2%;
           padding-left: 6%;
           img {
-            width: 30%;
+            width: 70%;
           }
         }
-        .menu {
-          width: 95%;
-
-          text-align: left;
-
-          justify-content: space-around;
+        .menu-gamburger {
+          width: 30px;
+          position: relative;
+          margin-right: 10%;
+          .menu {
+            flex-direction: column;
+            width: 100px;
+            height: 100px;
+            padding: 10px;
+            position: absolute;
+            top: -150px;
+            right: 20%;
+            background-color: none;
+            @include transform(translateX(-20%));
+            $trparam: top 1s, background-color 1.2s;
+            @include transition($trparam);
+            @include radius(3px);
+            &__link {
+              font-size: 0.7rem;
+              &:hover {
+                color: $red;
+              }
+            }
+          }
+          &:hover {
+            color: #e84545;
+            .menu {
+              top: 0;
+              background-color: #66687d;
+            }
+          }
+          &::before {
+            content: "|||";
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            box-sizing: border-box;
+            @include radius(4px);
+            border: 1px solid $white;
+            font-size: (15 / 16) + rem;
+            letter-spacing: 2px;
+            line-height: 30px;
+            text-align: center;
+            cursor: pointer;
+            @include transform(rotate(90deg));
+          }
         }
       }
       .wrapper-general-head {
@@ -765,12 +821,9 @@ footer {
     &__about-me {
       display: flex;
       flex-direction: column;
-
       width: 50%;
       margin-bottom: 5%;
-
       align-items: center;
-      // align-items: flex-start;
     }
     &__my-name {
       font-size: (22 / 16) + rem;
@@ -908,13 +961,6 @@ footer {
           img {
             width: 30%;
           }
-        }
-        .menu {
-          flex-direction: column;
-
-          width: 95%;
-
-          align-items: center;
         }
       }
       .wrapper-general-head {
