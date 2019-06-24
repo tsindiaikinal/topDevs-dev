@@ -160,12 +160,19 @@ header {
   text-align: center;
   flex-wrap: wrap;
   justify-content: space-around; }
+  .features__box-content {
+    width: 300px;
+    max-height: 300px; }
   .features__img {
     width: 60px;
     height: 60px;
     margin: auto; }
+    .features__img img {
+      width: auto;
+      height: 100%; }
   .features__title {
-    margin: 32px auto;
+    width: 55%;
+    margin: 10% auto;
     font-family: "Raleway";
     font-size: 0.875rem;
     font-weight: bold;
@@ -173,9 +180,9 @@ header {
     color: #2d3033; }
   .features__description {
     line-height: 1.5;
-    width: 310px;
-    margin-top: 25px;
-    margin-bottom: 35%;
+    width: 100%;
+    text-align: center;
+    padding-bottom: 30%;
     font-family: "Raleway";
     font-size: 0.875rem;
     font-weight: normal;
@@ -745,7 +752,7 @@ footer .container-copyright {
 
 @media screen and (max-width: 479px) {
   header {
-    height: 25rem; }
+    height: 20.625rem; }
     header .header-content nav .logo {
       margin-bottom: 2%;
       padding-left: 6%; }
@@ -764,4 +771,16 @@ footer .container-copyright {
     header .header-content .wrapper-general-head button {
       font-size: 0.55rem;
       width: 90px;
-      height: 30px; } }
+      height: 30px; }
+  .features {
+    display: flex;
+    padding-top: 30px;
+    padding-bottom: 0;
+    flex-wrap: wrap;
+    justify-content: space-around; }
+    .features__box-content {
+      max-height: 250px; }
+  .gallery__img {
+    padding: 1%;
+    width: 100%;
+    height: auto; } }

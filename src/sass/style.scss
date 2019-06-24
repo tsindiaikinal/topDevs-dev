@@ -222,21 +222,30 @@ header {
   text-align: center;
   flex-wrap: wrap;
   justify-content: space-around;
+  &__box-content {
+    width: 300px;
+    max-height: 300px;
+  }
   &__img {
     width: 60px;
     height: 60px;
     margin: auto;
+    img {
+      width: auto;
+      height: 100%;
+    }
   }
   &__title {
-    margin: 32px auto;
+    width: 55%;
+    margin: 10% auto;
 
     @include fonts($raleway, (14 / 16) + rem, bold, uppercase, #2d3033);
   }
   &__description {
     line-height: 1.5;
-    width: 310px;
-    margin-top: 25px;
-    margin-bottom: 35%;
+    width: 100%;
+    text-align: center;
+    padding-bottom: 30%;
     @include fonts($raleway, (14 / 16) + rem, normal, normal, #6c7279);
   }
 }
@@ -952,7 +961,7 @@ footer {
 
 @media screen and (max-width: 479px) {
   header {
-    height: (400 / 16) + rem;
+    height: (330 / 16) + rem;
     .header-content {
       nav {
         .logo {
@@ -982,5 +991,20 @@ footer {
         }
       }
     }
+  }
+  .features {
+    display: flex;
+
+    padding-top: 30px;
+    padding-bottom: 0;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    &__box-content {
+      max-height: 250px;
+    }
+  }
+  .gallery__img {
+    padding: 1%;
+    @include size(100%, auto);
   }
 }
