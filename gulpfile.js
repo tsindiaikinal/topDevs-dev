@@ -7,6 +7,7 @@ const sourcemaps = require("gulp-sourcemaps");
 const babel = require("gulp-babel");
 const concat = require("gulp-concat");
 const csso = require("gulp-csso");
+const autoprefixer = require("gulp-autoprefixer");
 const imagemin = require("gulp-imagemin");
 const imageminPngquant = require("imagemin-pngquant");
 const imgCompress = require("imagemin-jpeg-recompress");
@@ -29,7 +30,7 @@ watch(["src/sass/*.scss"], function(cb) {
 });
 
 watch("src/**/index.js", function(cb) {
-  babelTranspiller();
+  babeltr();
   cb();
 });
 
@@ -63,6 +64,7 @@ sass.compiler = require("node-sass");
 const sassExt = () => {
   return src("src/sass/**/*.scss")
     .pipe(sass().on("error", sass.logError))
+    .pipe(autoprefixer())
     .pipe(dest("src/css"));
   // .pipe(browserSync.stream());
 };

@@ -6,6 +6,16 @@ $(document).ready(function() {
     dots: true
   });
 });
+
+/*  ********************************************  */
+let gamburger = document.getElementById("gamburger");
+let close = document.getElementById("close");
+gamburger.addEventListener("click", () => {
+  document.querySelector(".menu-container").classList.add("tab-menu");
+});
+close.addEventListener("click", () => {
+  document.querySelector(".menu-container").classList.remove("tab-menu");
+});
 // FOR LOCAL JSON FILE
 /* const xmr = new XMLHttpRequest();
 xmr.onload = function() {

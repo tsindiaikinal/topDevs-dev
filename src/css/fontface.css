@@ -45,3 +45,17 @@
     font-style: italic;
 }
 
+@font-face {
+  font-family: 'fontello';
+  src: url('../fonts/fontello.woff2?88573278') format('woff2'),
+       url('../fonts/fontello.woff?88573278') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'fontello';
+  src: url('../fonts/fontello-car.woff2?71647078') format('woff2'),
+       url('../fonts/fontello-car.woff?71647078') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}

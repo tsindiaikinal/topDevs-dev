@@ -141,7 +141,7 @@ header {
       width: 200px;
       margin-top: 9.5%; }
 
-.menu-gamburger {
+.menu-container {
   width: 595px; }
 
 .menu {
@@ -582,41 +582,10 @@ footer .container-copyright {
             width: 70%; }
         header .header-content nav .menu-gamburger {
           width: 30px;
-          position: relative;
-          margin-right: 10%; }
-          header .header-content nav .menu-gamburger .menu {
-            flex-direction: column;
-            width: 100px;
-            height: 100px;
-            padding: 10px;
-            position: absolute;
-            top: -150px;
-            right: 20%;
-            background-color: none;
-            transform: translateX(-20%);
-            -webkit-transform: translateX(-20%);
-            -moz-transform: translateX(-20%);
-            -ms-transform: translateX(-20%);
-            -o-transform: translateX(-20%);
-            transition: top 1s, background-color 1.2s;
-            -webkit-transition: top 1s, background-color 1.2s;
-            -moz-transition: top 1s, background-color 1.2s;
-            -ms-transition: top 1s, background-color 1.2s;
-            -o-transition: top 1s, background-color 1.2s;
-            border-radius: 3px;
-            -webkit-border-radius: 3px;
-            -moz-border-radius: 3px;
-            -ms-border-radius: 3px;
-            -o-border-radius: 3px; }
-            header .header-content nav .menu-gamburger .menu__link {
-              font-size: 0.7rem; }
-              header .header-content nav .menu-gamburger .menu__link:hover {
-                color: #e84545; }
+          position: absolute;
+          right: 5%; }
           header .header-content nav .menu-gamburger:hover {
             color: #e84545; }
-            header .header-content nav .menu-gamburger:hover .menu {
-              top: 0;
-              background-color: #66687d; }
           header .header-content nav .menu-gamburger::before {
             content: "|||";
             display: inline-block;
@@ -639,6 +608,67 @@ footer .container-copyright {
             -moz-transform: rotate(90deg);
             -ms-transform: rotate(90deg);
             -o-transform: rotate(90deg); }
+        header .header-content nav .menu-container {
+          width: 40%;
+          padding: 2%;
+          margin: auto;
+          position: absolute;
+          top: -100%;
+          left: 5%;
+          right: 5%;
+          background-color: #66687d;
+          transition: top 1s;
+          -webkit-transition: top 1s;
+          -moz-transition: top 1s;
+          -ms-transition: top 1s;
+          -o-transition: top 1s;
+          border-radius: 3px;
+          -webkit-border-radius: 3px;
+          -moz-border-radius: 3px;
+          -ms-border-radius: 3px;
+          -o-border-radius: 3px; }
+          header .header-content nav .menu-container #close::after {
+            position: absolute;
+            top: 7%;
+            right: 7%;
+            content: "\e800";
+            font-family: "fontello";
+            font-size: 0.7rem;
+            cursor: pointer; }
+          header .header-content nav .menu-container #close:hover {
+            color: #e84545; }
+        header .header-content nav .menu {
+          width: 80%;
+          padding: 10px;
+          flex-direction: column; }
+          header .header-content nav .menu__item {
+            width: 100%;
+            height: 20px;
+            box-sizing: border-box; }
+          header .header-content nav .menu__item:hover {
+            padding-left: 5px;
+            border: 1px solid #fff;
+            background-color: rgba(0, 0, 0, 0.2);
+            transition: all 0.3s;
+            -webkit-transition: all 0.3s;
+            -moz-transition: all 0.3s;
+            -ms-transition: all 0.3s;
+            -o-transition: all 0.3s; }
+            header .header-content nav .menu__item:hover ::before {
+              content: '\f1ba';
+              font-family: 'fontello';
+              position: absolute;
+              margin-left: -10%; }
+          header .header-content nav .menu__link {
+            display: inline-block;
+            width: 100%;
+            font-size: 0.7rem; }
+            header .header-content nav .menu__link:hover {
+              color: #e84545; }
+        header .header-content nav .tab-menu {
+          width: 40%;
+          margin: auto;
+          top: 0; }
       header .header-content .wrapper-general-head h1 {
         margin-top: 15%;
         font-family: "Open Sans";
