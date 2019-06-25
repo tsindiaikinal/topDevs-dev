@@ -758,7 +758,7 @@ footer {
         .menu-gamburger {
           width: 30px;
           position: absolute;
-          right: 5%;
+          right: 6%;
           &:hover {
             color: #e84545;
           }
@@ -809,7 +809,7 @@ footer {
           padding: 10px;
           flex-direction: column;
           &__item {
-            width: 100%;
+            width: 90%;
             height: 20px;
             box-sizing: border-box;
           }
@@ -822,7 +822,7 @@ footer {
               content: "\f1ba";
               font-family: "fontello";
               position: absolute;
-              margin-left: -10%;
+              margin-left: -11%;
             }
           }
           &__link {
@@ -984,7 +984,6 @@ footer {
   }
   .container-copyright {
     font-size: (12 / 16) + rem;
-
     padding-top: 2%;
     padding-bottom: 2%;
   }

@@ -583,7 +583,7 @@ footer .container-copyright {
         header .header-content nav .menu-gamburger {
           width: 30px;
           position: absolute;
-          right: 5%; }
+          right: 6%; }
           header .header-content nav .menu-gamburger:hover {
             color: #e84545; }
           header .header-content nav .menu-gamburger::before {
@@ -642,7 +642,7 @@ footer .container-copyright {
           padding: 10px;
           flex-direction: column; }
           header .header-content nav .menu__item {
-            width: 100%;
+            width: 90%;
             height: 20px;
             box-sizing: border-box; }
           header .header-content nav .menu__item:hover {
@@ -658,7 +658,7 @@ footer .container-copyright {
               content: "\f1ba";
               font-family: "fontello";
               position: absolute;
-              margin-left: -10%; }
+              margin-left: -11%; }
           header .header-content nav .menu__link {
             display: inline-block;
             width: 100%;
